@@ -1,5 +1,5 @@
-import mongoose, { model } from 'mongoose';
-const { Schema } = mongoose;
+const  mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
 
 const requiredString = {
@@ -12,24 +12,22 @@ const requiredNumber = {
     required: true,
 };
 
-
-
 const LogEntrySchema = new Schema({
     Title: requiredString,
     Description: String,
-    Comments: String,
-    rating: { 
+    Comment: String,
+    Rating: { 
         type: Number,
         min: 0,
         max: 10,
         default: 0,
     },
-    image: String,
-    latitude: { ...requiredNumber,
+    Image: String,
+    Latitude: { ...requiredNumber,
         min: -90, 
         max: 90 
     },
-    longitude: { ...requiredNumber, 
+    Longitude: { ...requiredNumber, 
         min: -180, 
         max: 180 
     },
